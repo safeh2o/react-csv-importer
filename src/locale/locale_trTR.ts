@@ -14,6 +14,7 @@ export const trTR: ImporterLocale = {
     getImportError: (message) => `Import hatası: ${message}`,
     getDataFormatError: (message) =>
       `Lütfen veri formatını kontrol edin: ${message}`,
+    unsupportedFileFormatError: 'Dosya formatı desteklenmiyor',
     goBackButton: 'Geri',
     nextButton: 'Kolonları Seç',
 

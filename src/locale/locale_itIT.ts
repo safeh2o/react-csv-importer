@@ -14,6 +14,7 @@ export const itIT: ImporterLocale = {
     getImportError: (message) => `Errore durante l'importazione: ${message}`,
     getDataFormatError: (message) =>
       `Si prega di controllare il formato dei dati: ${message}`,
+    unsupportedFileFormatError: 'Formato file non supportato',
     goBackButton: 'Torna indietro',
     nextButton: 'Seleziona le colonne',
 

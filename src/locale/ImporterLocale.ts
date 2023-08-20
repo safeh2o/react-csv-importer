@@ -11,6 +11,7 @@ export interface ImporterLocale {
     getDataFormatError: (message: string) => string;
     goBackButton: string;
     nextButton: string;
+    unsupportedFileFormatError: string;
 
     rawFileContentsHeading: string;
     previewImportHeading: string;

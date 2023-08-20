@@ -14,6 +14,7 @@ export const daDK: ImporterLocale = {
     getImportError: (message) => `Import-fejl: ${message}`,
     getDataFormatError: (message) =>
       `Kontrollér venligst data-formatering: ${message}`,
+    unsupportedFileFormatError: 'Filformat understøttes ikke',
     goBackButton: 'Gå tilbage',
     nextButton: 'Vælg kolonner',
 

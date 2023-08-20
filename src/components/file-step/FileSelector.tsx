@@ -1,14 +1,17 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useLocale } from '../../locale/LocaleContext';
 
 import './FileSelector.scss';
 
-export const FileSelector: React.FC<{ onSelected: (file: File) => void }> = ({
-  onSelected
-}) => {
+const supportedFileFormats = ['text/csv', 'text/plain'];
+
+export const FileSelector: React.FC<{
+  onSelected: (file: File) => void;
+}> = ({ onSelected }) => {
   const onSelectedRef = useRef(onSelected);
   onSelectedRef.current = onSelected;
+  const [unsupportedFileFormat, setUnsupportedFileFormat] = useState(false);
 
   const dropHandler = useCallback((acceptedFiles: File[]) => {
     // silently ignore if nothing to do
@@ -17,6 +20,8 @@ export const FileSelector: React.FC<{ onSelected: (file: File) => void }> = ({
     }
 
     const file = acceptedFiles[0];
+    if (!supportedFileFormats.includes(file.type))
+      return setUnsupportedFileFormat(true);
     onSelectedRef.current(file);
   }, []);
 
@@ -25,6 +30,14 @@ export const FileSelector: React.FC<{ onSelected: (file: File) => void }> = ({
   });
 
   const l10n = useLocale('fileStep');
+
+  const errorBlock = () => {
+    return (
+      <div className="CSVImporter_FileSelector--error">
+        {l10n.unsupportedFileFormatError}. {l10n.activeDragDropPrompt}
+      </div>
+    );
+  };
 
   return (
     <div
@@ -35,9 +48,13 @@ export const FileSelector: React.FC<{ onSelected: (file: File) => void }> = ({
       <input {...getInputProps()} />
 
       {isDragActive ? (
-        <span>{l10n.activeDragDropPrompt}</span>
+        <span>
+          {unsupportedFileFormat ? errorBlock() : l10n.activeDragDropPrompt}
+        </span>
       ) : (
-        <span>{l10n.initialDragDropPrompt}</span>
+        <span>
+          {unsupportedFileFormat ? errorBlock() : l10n.initialDragDropPrompt}
+        </span>
       )}
     </div>
   );

@@ -13,6 +13,7 @@ export const enUS: ImporterLocale = {
 
     getImportError: (message) => `Import error: ${message}`,
     getDataFormatError: (message) => `Please check data formatting: ${message}`,
+    unsupportedFileFormatError: 'File format not supported',
     goBackButton: 'Go Back',
     nextButton: 'Choose columns',
 

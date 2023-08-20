@@ -15,6 +15,7 @@ export const deDE: ImporterLocale = {
     getImportError: (message) => `Fehler beim Import: ${message}`,
     getDataFormatError: (message: string) =>
       `Bitte Datenformat überprüfen: ${message}`,
+    unsupportedFileFormatError: 'Dateiformat nicht unterstützt',
     goBackButton: 'Zurück',
 
     rawFileContentsHeading: 'Originaler Datei-Inhalt',

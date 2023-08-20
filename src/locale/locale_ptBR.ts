@@ -14,6 +14,7 @@ export const ptBR: ImporterLocale = {
     getImportError: (message) => `Erro ao importar: ${message}`,
     getDataFormatError: (message) =>
       `Por favor confira a formatação dos dados: ${message}`,
+    unsupportedFileFormatError: 'Formato de arquivo não suportado',
     goBackButton: 'Voltar',
     nextButton: 'Escolher Colunas',
 
