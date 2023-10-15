@@ -1,17 +1,18 @@
+import { path as chromeDriverPath } from 'chromedriver';
 import { Builder, ThenableWebDriver } from 'selenium-webdriver';
-import * as chrome from 'selenium-webdriver/chrome';
+import { ServiceBuilder, Options } from 'selenium-webdriver/chrome';
 
 export function runDriver(): () => ThenableWebDriver {
   let webdriver: ThenableWebDriver | null = null;
 
   // same webdriver instance serves all the tests in the suite
   before(async function () {
-    const options = process.env.CI
-      ? new chrome.Options().headless()
-      : new chrome.Options();
+    const service = new ServiceBuilder(chromeDriverPath);
+    const options = process.env.CI ? new Options().headless() : new Options();
 
     webdriver = new Builder()
       .forBrowser('chrome')
+      .setChromeService(service)
       .withCapabilities(options)
       .build();
   });
