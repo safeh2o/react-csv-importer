@@ -1,6 +1,6 @@
 # React CSV Importer
 
-[![https://www.npmjs.com/package/@safeh2o/react-csv-importer](https://img.shields.io/npm/v/react-csv-importer)](https://www.npmjs.com/package/@safeh2o/react-csv-importer) [![https://github.com/safeh2o/react-csv-importer/actions](https://github.com/safeh2o/react-csv-importer/actions/workflows/test.yml/badge.svg)](https://github.com/safeh2o/react-csv-importer/actions)
+[![https://www.npmjs.com/package/@safeh2o/react-csv-importer](https://img.shields.io/npm/v/@safeh2o/react-csv-importer)](https://www.npmjs.com/package/@safeh2o/react-csv-importer) [![https://github.com/safeh2o/react-csv-importer/actions](https://github.com/safeh2o/react-csv-importer/actions/workflows/test.yml/badge.svg)](https://github.com/safeh2o/react-csv-importer/actions)
 
 This library combines an uploader + CSV parser + raw file preview + UI for custom user column
 mapping, all in one.
@@ -16,7 +16,7 @@ Use this to provide a typical bulk data import experience:
 
 [Try it in the live code sandbox](https://codesandbox.io/s/github/safeh2o/react-csv-importer/tree/master/demo-sandbox)
 
-### Feature summary:
+## Feature summary
 
 - raw file preview
 - drag-drop UI to remap input columns as needed
@@ -27,7 +27,7 @@ Use this to provide a typical bulk data import experience:
 - existing parser implementation: Papa Parse CSV
 - TypeScript support
 
-### Enterprise-level data file handling:
+## Enterprise-level data file handling
 
 - 1GB+ CSV file size (true streaming support without crashing browser)
 - automatically strip leading BOM character in data
@@ -38,10 +38,10 @@ Use this to provide a typical bulk data import experience:
 
 ```sh
 # using NPM
-npm install --save react-csv-importer
+npm install --save @safeh2o/react-csv-importer
 
 # using Yarn
-yarn add react-csv-importer
+yarn add @safeh2o/react-csv-importer
 ```
 
 Make sure that the bundled CSS stylesheet (`/dist/index.css`) is present in your app's page or bundle.
@@ -59,10 +59,10 @@ Instead of a custom CSV parser this library uses the popular Papa Parse CSV read
 ## Example Usage
 
 ```js
-import { Importer, ImporterField } from 'react-csv-importer';
+import { Importer, ImporterField } from '@safeh2o/react-csv-importer';
 
 // include the widget CSS file whichever way your bundler supports it
-import 'react-csv-importer/dist/index.css';
+import '@safeh2o/react-csv-importer/dist/index.css';
 
 // in your component code:
 <Importer
@@ -132,14 +132,14 @@ For more, please see [storybook examples](src/components/Importer.stories.tsx).
 
 You can swap the text used in the UI to a different locale.
 
-```
-import { Importer, deDE } from 'react-csv-importer';
+```tsx
+import { Importer, deDE } from '@safeh2o/react-csv-importer';
 
 // provide the locale to main UI
 <Importer
   locale={deDE}
   // normal props, etc
-/>
+/>;
 ```
 
 These locales are provided as part of the NPM module:
