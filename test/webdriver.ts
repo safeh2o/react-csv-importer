@@ -12,9 +12,7 @@ export function runDriver(): () => ThenableWebDriver {
     if (process.env.CI) {
       options.headless();
     }
-    if (process.arch === 'arm64') {
-      options.addArguments('remote-debugging-pipe');
-    }
+    options.addArguments('--remote-debugging-pipe');
 
     webdriver = new Builder()
       .forBrowser('chrome')
