@@ -6,8 +6,8 @@
   "author": "Nick Matantsev <nick.matantsev@beamworks.io>",
   "license": "ISC",
   "dependencies": {
+    "@safeh2o/react-csv-importer": "^1.0.0",
     "react": "^18.0.0",
-    "react-csv-importer": "^0.8.1",
     "react-dom": "^18.0.0"
   }
 }

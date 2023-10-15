@@ -1,6 +1,6 @@
 # React CSV Importer
 
-[![https://www.npmjs.com/package/react-csv-importer](https://img.shields.io/npm/v/react-csv-importer)](https://www.npmjs.com/package/react-csv-importer) [![https://github.com/beamworks/react-csv-importer/actions](https://github.com/beamworks/react-csv-importer/actions/workflows/test.yml/badge.svg)](https://github.com/beamworks/react-csv-importer/actions)
+[![https://www.npmjs.com/package/@safeh2o/react-csv-importer](https://img.shields.io/npm/v/react-csv-importer)](https://www.npmjs.com/package/@safeh2o/react-csv-importer) [![https://github.com/safeh2o/react-csv-importer/actions](https://github.com/safeh2o/react-csv-importer/actions/workflows/test.yml/badge.svg)](https://github.com/safeh2o/react-csv-importer/actions)
 
 This library combines an uploader + CSV parser + raw file preview + UI for custom user column
 mapping, all in one.
@@ -12,9 +12,9 @@ Use this to provide a typical bulk data import experience:
 - ✏ pick which columns to import
 - ⏳ wait for backend logic to finish processing data
 
-![React CSV Importer usage demo](https://github.com/beamworks/react-csv-importer/raw/59f967c13bbbd20eb2a663538797dd718f9bc57e/package-core/react-csv-importer-demo-20200915.gif)
+![React CSV Importer usage demo](https://github.com/safeh2o/react-csv-importer/raw/59f967c13bbbd20eb2a663538797dd718f9bc57e/package-core/react-csv-importer-demo-20200915.gif)
 
-[Try it in the live code sandbox](https://codesandbox.io/s/github/beamworks/react-csv-importer/tree/master/demo-sandbox)
+[Try it in the live code sandbox](https://codesandbox.io/s/github/safeh2o/react-csv-importer/tree/master/demo-sandbox)
 
 ### Feature summary:
 

@@ -1,8 +1,8 @@
 import React from "react";
-import { Importer, ImporterField } from "react-csv-importer";
+import { Importer, ImporterField } from "@safeh2o/react-csv-importer";
 
 // theme CSS for React CSV Importer
-import "react-csv-importer/dist/index.css";
+import "@safeh2o/react-csv-importer/dist/index.css";
 
 // basic styling and font for sandbox window
 import "./index.css";

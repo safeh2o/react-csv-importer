@@ -15,6 +15,10 @@
     "papa parse",
     "papaparse"
   ],
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/safeh2o/react-csv-importer"
