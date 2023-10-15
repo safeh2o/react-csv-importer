@@ -28,6 +28,7 @@ export function runUI(
   // always clean up
   afterEach(async () => {
     await runScript((React, ReactDOM) => {
+      // eslint-disable-next-line react/no-deprecated
       ReactDOM.unmountComponentAtNode(
         document.getElementById('root') || document.body
       );
@@ -44,7 +45,6 @@ export function runUI(
   };
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function uiHelperSetup(getDriver: () => ThenableWebDriver) {
   return {
     async uploadFile(filePath: string) {

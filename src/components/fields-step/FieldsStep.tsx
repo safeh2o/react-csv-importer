@@ -112,8 +112,7 @@ export const FieldsStep: React.FC<{
         }
 
         // find by field stem
-        const fieldLabelStem = field.label.trim().toLowerCase(); // @todo consider normalizing other whitespace/non-letters
-        const matchingColumnIndex = columnStemMap[fieldLabelStem];
+        const matchingColumnIndex = columnStemMap[field.name];
 
         // ignore if equivalent column not found
         if (matchingColumnIndex === undefined) {
