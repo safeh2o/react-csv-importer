@@ -17,6 +17,7 @@ export const ImporterFrame: React.FC<{
   onSecondary?: () => void;
   onNext: () => void;
   onCancel?: () => void;
+  children: React.ReactNode;
 }> = ({
   fileName,
   subtitle,

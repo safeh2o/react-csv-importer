@@ -5,6 +5,7 @@ import './TextButton.scss';
 export const TextButton: React.FC<{
   disabled?: boolean;
   onClick?: () => void;
+  children: React.ReactNode
 }> = ({ disabled, onClick, children }) => {
   return (
     <button

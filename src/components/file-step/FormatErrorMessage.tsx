@@ -7,8 +7,11 @@ import { useLocale } from '../../locale/LocaleContext';
 
 export const FormatErrorMessage: React.FC<{
   onCancelClick: () => void;
-  // eslint-disable-next-line react/display-name
-}> = React.memo(({ onCancelClick, children }) => {
+  children: React.ReactNode;
+}> = React.memo(function MemoizedFormatErrorMessage({
+  onCancelClick,
+  children
+}) {
   const l10n = useLocale('fileStep');
   return (
     <div className="CSVImporter_FormatErrorMessage">

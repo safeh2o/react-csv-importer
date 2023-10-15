@@ -38,10 +38,10 @@ const SourceBox: React.FC<{
     [fieldAssignments, column]
   );
 
-  const eventHandlers = useMemo(() => eventBinder(column), [
-    eventBinder,
-    column
-  ]);
+  const eventHandlers = useMemo(
+    () => eventBinder(column),
+    [eventBinder, column]
+  );
 
   const l10n = useLocale('fieldsStep');
 

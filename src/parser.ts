@@ -2,15 +2,15 @@ import Papa from 'papaparse';
 import { Readable } from 'stream';
 
 export interface CustomizablePapaParseConfig {
-  delimiter?: Papa.ParseConfig['delimiter'];
-  newline?: Papa.ParseConfig['newline'];
-  quoteChar?: Papa.ParseConfig['quoteChar'];
-  escapeChar?: Papa.ParseConfig['escapeChar'];
-  comments?: Papa.ParseConfig['comments'];
-  skipEmptyLines?: Papa.ParseConfig['skipEmptyLines'];
-  delimitersToGuess?: Papa.ParseConfig['delimitersToGuess'];
-  chunkSize?: Papa.ParseConfig['chunkSize'];
-  encoding?: Papa.ParseConfig['encoding'];
+  delimiter?: Papa.ParseLocalConfig['delimiter'];
+  newline?: Papa.ParseLocalConfig['newline'];
+  quoteChar?: Papa.ParseLocalConfig['quoteChar'];
+  escapeChar?: Papa.ParseLocalConfig['escapeChar'];
+  comments?: Papa.ParseLocalConfig['comments'];
+  skipEmptyLines?: Papa.ParseLocalConfig['skipEmptyLines'];
+  delimitersToGuess?: Papa.ParseLocalConfig['delimitersToGuess'];
+  chunkSize?: Papa.ParseLocalConfig['chunkSize'];
+  encoding?: Papa.ParseLocalConfig['encoding'];
 }
 
 export interface PreviewReport {
@@ -187,7 +187,7 @@ function nodeStreamWrapper(stream: ReadableStream, encoding: string): Readable {
   };
 
   // pass ourselves off as a real Node stream
-  return (self as unknown) as Readable;
+  return self as unknown as Readable;
 }
 
 export function parsePreview(

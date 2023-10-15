@@ -28,14 +28,15 @@ export function runDriver(): () => ThenableWebDriver {
   before(async function () {
     const chromedriverPath = await getGlobalChromedriverPath();
 
-    const service = new chrome.ServiceBuilder(chromedriverPath).build();
-    chrome.setDefaultService(service);
+    const service = new chrome.ServiceBuilder(chromedriverPath);
+    const options = process.env.CI
+      ? new chrome.Options().headless()
+      : new chrome.Options();
 
     webdriver = new Builder()
       .forBrowser('chrome')
-      .setChromeOptions(
-        process.env.CI ? new chrome.Options().headless() : new chrome.Options()
-      )
+      .setChromeService(service)
+      .withCapabilities(options)
       .build();
   });
 

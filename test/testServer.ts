@@ -54,18 +54,24 @@ export function runTestServer(): string {
       externals: {},
 
       mode: 'production',
-      watch: false
+      watch: false,
+      performance: {
+        hints: false
+      }
     };
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const compiler = webpack(webpackConfig as any);
 
     const devServer = new WebpackDevServer(compiler, {
-      contentBase: path.resolve(__dirname, './public'), // static test helper content
       hot: false,
       liveReload: false,
-      noInfo: true,
-      stats: 'errors-only'
+      static: {
+        directory: path.resolve(__dirname, './public') // static test helper content,
+      },
+      devMiddleware: {
+        stats: 'errors-only'
+      }
     });
 
     // store reference for later cleanup

@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { Importer, ImporterField } from "react-csv-importer";
 
 // theme CSS for React CSV Importer
@@ -8,9 +7,10 @@ import "react-csv-importer/dist/index.css";
 // basic styling and font for sandbox window
 import "./index.css";
 
+const root = React.createRoot(document.getElementById("root"));
 // sample importer usage snippet, play around with the settings and try it out!
 // (open console output to see sample results)
-ReactDOM.render(
+root.render(
   <div>
     <h1>React CSV Importer sandbox</h1>
 

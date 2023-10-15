@@ -48,10 +48,9 @@ export const FieldsStep: React.FC<{
 
   const columns = useMemo<Column[]>(
     () =>
-      generatePreviewColumns(
-        fileState.firstRows,
-        fileState.hasHeaders
-      ).map((item) => ({ ...item, code: generateColumnCode(item.index) })),
+      generatePreviewColumns(fileState.firstRows, fileState.hasHeaders).map(
+        (item) => ({ ...item, code: generateColumnCode(item.index) })
+      ),
     [fileState]
   );
 

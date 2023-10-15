@@ -167,12 +167,6 @@ Perform local `git clone`, etc. Then ensure modules are installed:
 yarn
 ```
 
-To start Storybook to have a hot-reloaded local sandbox:
-
-```sh
-yarn storybook
-```
-
 To run the end-to-end test suite:
 
 ```sh

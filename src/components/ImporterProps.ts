@@ -37,33 +37,32 @@ export interface ImporterFieldProps {
 
 export type ImporterDataHandlerProps<Row extends BaseRow> =
   | {
-      dataHandler: ParseCallback<Row>;
+      dataHandler?: ParseCallback<Row>;
       processChunk?: undefined; // for ease of rest-spread
     }
   | {
       /**
        * @deprecated renamed to `dataHandler`
        */
-      processChunk: ParseCallback<Row>;
+      processChunk?: ParseCallback<Row>;
       dataHandler?: undefined; // disambiguate from newer naming
     };
 
-export type ImporterProps<Row extends BaseRow> = ImporterDataHandlerProps<
-  Row
-> & {
-  defaultNoHeader?: boolean;
-  /**
-   * @deprecated renamed to `defaultNoHeader`
-   */
-  assumeNoHeaders?: boolean;
+export type ImporterProps<Row extends BaseRow> =
+  ImporterDataHandlerProps<Row> & {
+    defaultNoHeader?: boolean;
+    /**
+     * @deprecated renamed to `defaultNoHeader`
+     */
+    assumeNoHeaders?: boolean;
 
-  displayColumnPageSize?: number;
-  displayFieldRowSize?: number;
+    displayColumnPageSize?: number;
+    displayFieldRowSize?: number;
 
-  restartable?: boolean;
-  onStart?: (info: ImportInfo) => void;
-  onComplete?: (info: ImportInfo) => void;
-  onClose?: (info: ImportInfo) => void;
-  children?: ImporterContentRenderProp | React.ReactNode;
-  locale?: ImporterLocale;
-} & CustomizablePapaParseConfig;
+    restartable?: boolean;
+    onStart?: (info: ImportInfo) => void;
+    onComplete?: (info: ImportInfo) => void;
+    onClose?: (info: ImportInfo) => void;
+    children?: ImporterContentRenderProp | React.ReactNode;
+    locale?: ImporterLocale;
+  } & CustomizablePapaParseConfig;
