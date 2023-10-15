@@ -1,7 +1,7 @@
 {
   "name": "@safeh2o/react-csv-importer",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "React CSV import widget with user-customizable mapping",
   "keywords": [
     "react",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/safeh2o/react-csv-importer"
+    "url": "git+https://github.com/safeh2o/react-csv-importer"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -34,7 +34,8 @@
     "lint-fix": "eslint --max-warnings=0 --ext ts --ext tsx src --fix",
     "stylelint": "stylelint \"src/**/*.scss\"",
     "stylelint-fix": "stylelint \"src/**/*.scss\" --fix",
-    "test": "cross-env TS_NODE_COMPILER_OPTIONS={\\\"module\\\":\\\"commonjs\\\"} mocha --require ts-node/register --timeout 30000 test/**/*.test.ts"
+    "test": "cross-env TS_NODE_COMPILER_OPTIONS={\\\"module\\\":\\\"commonjs\\\"} mocha --require ts-node/register --timeout 30000 test/**/*.test.ts",
+    "prepublishOnly": "yarn build"
   },
   "author": "Nick Matantsev <nick.matantsev@beamworks.io>",
   "lint-staged": {
