@@ -1,4 +1,3 @@
-import { path as chromeDriverPath } from 'chromedriver';
 import { Builder, ThenableWebDriver } from 'selenium-webdriver';
 import { Options } from 'selenium-webdriver/chrome';
 
@@ -8,14 +7,12 @@ export function runDriver(): () => ThenableWebDriver {
   // same webdriver instance serves all the tests in the suite
   before(async function () {
     const options = new Options();
-    options.setChromeBinaryPath(chromeDriverPath);
     if (process.env.CI) {
       options.headless();
     }
-    options.addArguments('--remote-debugging-pipe');
 
     webdriver = new Builder()
-      .forBrowser('chrome')
+      .forBrowser('chrome', '118')
       .setChromeOptions(options)
       .build();
   });
