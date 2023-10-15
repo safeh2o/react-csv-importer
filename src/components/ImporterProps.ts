@@ -35,26 +35,13 @@ export interface ImporterFieldProps {
   optional?: boolean;
 }
 
-export type ImporterDataHandlerProps<Row extends BaseRow> =
-  | {
-      dataHandler?: ParseCallback<Row>;
-      processChunk?: undefined; // for ease of rest-spread
-    }
-  | {
-      /**
-       * @deprecated renamed to `dataHandler`
-       */
-      processChunk?: ParseCallback<Row>;
-      dataHandler?: undefined; // disambiguate from newer naming
-    };
+export type ImporterDataHandlerProps<Row extends BaseRow> = {
+  dataHandler: ParseCallback<Row>;
+};
 
 export type ImporterProps<Row extends BaseRow> =
   ImporterDataHandlerProps<Row> & {
     defaultNoHeader?: boolean;
-    /**
-     * @deprecated renamed to `defaultNoHeader`
-     */
-    assumeNoHeaders?: boolean;
 
     displayColumnPageSize?: number;
     displayFieldRowSize?: number;

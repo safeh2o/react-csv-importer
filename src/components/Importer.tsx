@@ -20,9 +20,7 @@ export function Importer<Row extends BaseRow>(
 ): React.ReactElement {
   const {
     dataHandler,
-    processChunk,
     defaultNoHeader,
-    assumeNoHeaders,
     restartable,
     displayFieldRowSize,
     displayColumnPageSize,
@@ -76,7 +74,7 @@ export function Importer<Row extends BaseRow>(
         <div className="CSVImporter_Importer">
           <FileStep
             customConfig={customPapaParseConfig}
-            defaultNoHeader={defaultNoHeader ?? assumeNoHeaders}
+            defaultNoHeader={defaultNoHeader}
             prevState={fileState}
             onChange={(parsedPreview) => {
               setFileState(parsedPreview);
@@ -133,8 +131,7 @@ export function Importer<Row extends BaseRow>(
           fileState={fileState}
           fieldsState={fieldsState}
           externalPreview={externalPreview}
-          // @todo remove assertion after upgrading to TS 4.1+
-          dataHandler={dataHandler ?? processChunk!} // eslint-disable-line @typescript-eslint/no-non-null-assertion
+          dataHandler={dataHandler}
           onStart={onStart}
           onRestart={
             restartable
