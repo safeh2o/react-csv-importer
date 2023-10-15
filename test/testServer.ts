@@ -63,16 +63,19 @@ export function runTestServer(): string {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const compiler = webpack(webpackConfig as any);
 
-    const devServer = new WebpackDevServer(compiler, {
-      hot: false,
-      liveReload: false,
-      static: {
-        directory: path.resolve(__dirname, './public') // static test helper content,
+    const devServer = new WebpackDevServer(
+      {
+        hot: false,
+        liveReload: false,
+        static: {
+          directory: path.resolve(__dirname, './public') // static test helper content,
+        },
+        devMiddleware: {
+          stats: 'errors-only'
+        }
       },
-      devMiddleware: {
-        stats: 'errors-only'
-      }
-    });
+      compiler
+    );
 
     // store reference for later cleanup
     testDevServer = devServer;
@@ -105,11 +108,7 @@ export function runTestServer(): string {
     }
 
     // wait for server to fully close
-    await new Promise<void>((resolve) => {
-      devServer.close(() => {
-        resolve();
-      });
-    });
+    await devServer.stop();
   });
 
   return serverUrl;
