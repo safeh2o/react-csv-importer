@@ -72,7 +72,9 @@ export function runTestServer(): string {
         },
         devMiddleware: {
           stats: 'errors-only'
-        }
+        },
+        port: TEST_SERVER_PORT,
+        host: 'localhost'
       },
       compiler
     );
@@ -80,15 +82,7 @@ export function runTestServer(): string {
     // store reference for later cleanup
     testDevServer = devServer;
 
-    const serverListenPromise = new Promise<void>((resolve, reject) => {
-      devServer.listen(TEST_SERVER_PORT, 'localhost', function (err) {
-        if (err) {
-          reject(err);
-        } else {
-          resolve();
-        }
-      });
-    });
+    const serverListenPromise = devServer.start();
 
     const serverCompilationPromise = new Promise<void>((resolve) => {
       compiler.hooks.done.tap('_', () => {
