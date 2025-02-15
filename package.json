@@ -1,7 +1,7 @@
 {
   "name": "@safeh2o/react-csv-importer",
   "license": "MIT",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "React CSV import widget with user-customizable mapping",
   "keywords": [
     "react",
